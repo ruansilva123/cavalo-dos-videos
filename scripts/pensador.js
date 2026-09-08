@@ -9,26 +9,10 @@ const phrases = [
   await pensador({ term: "satisfacao", max: 1 }),
 ];
 
-const history = [
-  {
-    topic: "bug",
-    message: "A alegria não está nas coisas, está em nós.",
-    approved: true,
-  },
-];
-
-const topics = ["bug", "carreira", "deploy", "gestão", "rinha"];
-
 const getQuote = () => {
   const quote = phrases[Math.floor(Math.random() * 4)].phrases[0].text;
-
-  //   history.push({
-  //     topic: topic,
-  //     message: quote,
-  //     approved: null,
-  //   });
 
   return quote;
 };
 
-getQuote(topics[0]);
+getQuote();
