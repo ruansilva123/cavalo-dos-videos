@@ -1,4 +1,5 @@
 import pensador from "pensador-api";
+import { addHistory } from "./history.js";
 
 // Buscar frases por termo
 // const result = await pensador({ term: "Fernando Pessoa", max: 3 });
@@ -11,6 +12,8 @@ const phrases = [
 
 const getQuote = () => {
   const quote = phrases[Math.floor(Math.random() * 4)].phrases[0].text;
+
+  addHistory("bug", "A alegria não está nas coisas, está em nós.", true);
 
   return quote;
 };

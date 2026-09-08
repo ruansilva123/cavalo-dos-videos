@@ -1,13 +1,15 @@
-const history = [
-  {
-    topic: "bug",
-    message: "A alegria não está nas coisas, está em nós.",
-    approved: true,
-  },
-];
+const getHistory = () => {
+  return localStorage.getItem("quotes");
+};
 
-//   history.push({
-//     topic: topic,
-//     message: quote,
-//     approved: null,
-//   });
+const addHistory = (topic, message, approved) => {
+  const quotes = getHistory();
+
+  quotes.push({
+    topic: topic,
+    message: message,
+    approved: approved,
+  });
+};
+
+export { getHistory, addHistory };
