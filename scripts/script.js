@@ -1,6 +1,7 @@
 import { datasource } from "./datasource.js";
+import { getQuote } from "./pensador.js";
 
-const phrase = "";
+const phrase = "Feliz";
 
 function phraseWords() {
   let words = phrase.split(" ").map((word) => word.toUpperCase());
@@ -24,7 +25,7 @@ function getPhrase() {
   });
 
   if (selectedPhrase === "") {
-    // fallback api
+    selectedPhrase = getQuote();
   }
 
   if (selectedPhrase === "") {
