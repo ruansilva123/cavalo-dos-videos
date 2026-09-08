@@ -19,16 +19,16 @@ const history = [
 
 const topics = ["bug", "carreira", "deploy", "gestão", "rinha"];
 
-const getQuote = (topic) => {
-  const quote = phrases[Math.floor(Math.random() * 4)];
+const getQuote = () => {
+  const quote = phrases[Math.floor(Math.random() * 4)].phrases[0].text;
 
-  history.push({
-    topic: topic,
-    message: quote,
-    approved: null,
-  });
+  //   history.push({
+  //     topic: topic,
+  //     message: quote,
+  //     approved: null,
+  //   });
 
-  console.log(quote.phrases.text);
+  return quote;
 };
 
 getQuote(topics[0]);
