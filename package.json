@@ -1,5 +1,5 @@
 {
-  "type": "",
+  "type": "module",
   "scripts": {
     "start": "npx http-server -p 3000"
   },
