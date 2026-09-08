@@ -21,5 +21,18 @@ function getPhrase() {
             // add break
         }
     })
+    showAnswer();
     return selectedPhrase;
+}
+
+function showAnswer() {
+    const divAnswer = document.getElementById('answer');
+
+    divAnswer.classList.remove('hide');
+}
+
+function hideAnswer() {
+    const divAnswer = document.getElementById('answer');
+
+    divAnswer.classList.add('hide');
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./styles.css" >
+    <link rel="stylesheet" href="./css/styles.css" >
     
 </head>
 <body>
@@ -15,12 +15,16 @@
     <section class="tela">
         <div class="container">
             <div class="container" id="patinhos-container"> <!-- Contêiner principal que agrupa os cards dos patinhos -->
-                <img src="./pato_oraculo.png">
+                <img src="./public/pato_oraculo.png">
             </div>
             <label for="pergunta">Qual a sua duvida jovem mancebo?</label>
-            <input id="pergunta">
+            <div>
+                <input id="pergunta">
+                <button id="btn-pergunta" onclick="getPhrase">Perguntar</button>
+            </div>
         </div>
-        <div>Resposta</div>
+        <div class="resposta hide" id="answer">Resposta</div>
     </section>
 </body>
+<script src="./scripts/script.js"></script>
 </html>
