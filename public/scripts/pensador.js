@@ -13,7 +13,5 @@ const phrases = [
 export const getQuote = () => {
   const quote = phrases[Math.floor(Math.random() * 4)].phrases[0].text;
 
-  addHistory("bug", "A alegria não está nas coisas, está em nós.", true);
-
   return quote;
 };
