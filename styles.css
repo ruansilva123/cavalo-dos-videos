@@ -1,0 +1,36 @@
+body {
+    background-color: aqua;
+}
+
+.tela {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+label {
+    font-size: 2rem;
+}
+
+input {
+    width: 25rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: aqua;
+    
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
