@@ -1,6 +1,6 @@
 import { datasource } from "./datasource.js";
 
-const phrase = "É natal hoje?"
+const phrase = "";
 
 function phraseWords() {
     let words = phrase.split(" ").map(word => word.toUpperCase());
@@ -12,12 +12,14 @@ function getRandomInt(max) {
 }
 
 function getPhrase() {
+    let selectedPhrase = "";
     let words = phraseWords();
     words.forEach(word => {
         if (datasource[word]) {
-            optionPhrase = getRandomInt(datasource[word].length)
+            let optionPhrase = getRandomInt(datasource[word].length);
+            selectedPhrase = datasource[word][optionPhrase];
+            // add break
         }
     })
+    return selectedPhrase;
 }
-
-getPhrase();
