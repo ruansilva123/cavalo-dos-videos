@@ -6,5 +6,9 @@ export const datasource = {
     "DEPLOY": [
         "Não faça deploy sexta",
         "Faça deploy sexta"
+    ],
+    "Codecon": [
+        "Acesse https://codecon.dev/",
+        "Veja mais em https://www.youtube.com/@codecondev"
     ]
 }

@@ -13,6 +13,7 @@ function getRandomInt(max) {
 
 function getPhrase() {
     let selectedPhrase = "";
+
     let words = phraseWords();
     words.forEach(word => {
         if (datasource[word]) {
@@ -21,12 +22,21 @@ function getPhrase() {
             // add break
         }
     })
-    showAnswer();
+
+    if (selectedPhrase === "") {
+        // fallback api
+    }
+
+    if (selectedPhrase === "") {
+        return "Assine a Codecon PRO";
+    }
     return selectedPhrase;
 }
 
 function showAnswer() {
     const divAnswer = document.getElementById('answer');
+
+    selectedPhrase = getPhrase();
 
     divAnswer.classList.remove('hide');
 }
