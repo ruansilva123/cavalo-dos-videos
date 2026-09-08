@@ -10,12 +10,10 @@ const phrases = [
   await pensador({ term: "satisfacao", max: 1 }),
 ];
 
-const getQuote = () => {
+export const getQuote = () => {
   const quote = phrases[Math.floor(Math.random() * 4)].phrases[0].text;
 
   addHistory("bug", "A alegria não está nas coisas, está em nós.", true);
 
   return quote;
 };
-
-getQuote();

@@ -1,5 +1,10 @@
 {
+  "type": ""
+  "scripts": {
+    "start": "npx http-server -p 3000"
+  },
   "dependencies": {
+    "http-server": "^14.1.1",
     "pensador-api": "^1.0.1"
   }
 }
