@@ -1,11 +1,12 @@
 {
-  "type": "module",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "^5.2.1",
-    "http-server": "^14.1.1",
-    "pensador-api": "^1.0.1"
-  }
+    "type": "module",
+    "scripts": {
+        "start": "node --watch app.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.6",
+        "express": "^5.2.1",
+        "http-server": "^14.1.1",
+        "pensador-api": "^1.0.1"
+    }
 }
