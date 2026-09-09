@@ -1,6 +1,7 @@
 import express from "express";
 import path, {dirname} from "path";
 import { fileURLToPath } from "url";
+import { getPhrase } from "./src/script.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,7 +13,10 @@ app.get("/", (req, res) => {
 })
 
 app.post("/resposta", (req, res) => {
-    //criar retorno da resposta
+    console.log(req.body);
+    const phrase = req.body;
+    selectedPhrase = getPhrase(phrase.phrase);
+    res.json({ phrase: selectedPhrase });
 })
 
 app.listen(3000);

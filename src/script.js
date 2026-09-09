@@ -1,9 +1,7 @@
-import { datasource } from "../../src/datasource.js";
-import { getQuote } from "../../src/pensador.js";
+import { datasource } from "./datasource.js";
+import { getQuote } from "./pensador.js";
 
-const phrase = "Feliz";
-
-function phraseWords() {
+function phraseWords(phrase) {
   let words = phrase.split(" ").map((word) => word.toUpperCase());
   return words;
 }
@@ -12,10 +10,10 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function getPhrase() {
+export function getPhrase(phrase) {
   let selectedPhrase = "";
 
-  let words = phraseWords();
+  let words = phraseWords(phrase);
   words.forEach((word) => {
     if (datasource[word]) {
       let optionPhrase = getRandomInt(datasource[word].length);
@@ -32,18 +30,4 @@ function getPhrase() {
     return "Assine a Codecon PRO";
   }
   return selectedPhrase;
-}
-
-function showAnswer() {
-  const divAnswer = document.getElementById("answer");
-
-  selectedPhrase = getPhrase();
-
-  divAnswer.classList.remove("hide");
-}
-
-function hideAnswer() {
-  const divAnswer = document.getElementById("answer");
-
-  divAnswer.classList.add("hide");
 }
