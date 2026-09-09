@@ -1,9 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "start": "npx http-server -p 3000"
+    "start": "node app.js"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "http-server": "^14.1.1",
     "pensador-api": "^1.0.1"
   }
