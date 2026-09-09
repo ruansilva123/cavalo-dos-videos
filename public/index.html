@@ -1,33 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
-
-</head>
-
-<body>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Pato Oráculo</h1>
+      <h1>Pato Oráculo</h1>
     </header>
     <section class="tela">
-        <div class="container">
-            <div class="container" id="patinhos-container">
-                <!-- Contêiner principal que agrupa os cards dos patinhos -->
-                <img src="pato_oraculo.png">
-            </div>
-            <label for="pergunta">Qual a sua duvida jovem mancebo?</label>
-            <div>
-                <input id="phrase">
-                <button id="btn-pergunta" onclick="getPhrase()">Perguntar</button>
-            </div>
+      <div class="container">
+        <div class="container" id="patinhos-container">
+          <!-- Contêiner principal que agrupa os cards dos patinhos -->
+          <img src="pato_oraculo.png" />
         </div>
-        <div class="resposta hide" id="answer">Resposta</div>
+        <label for="pergunta">Qual a sua duvida jovem mancebo?</label>
+        <div>
+          <input id="pergunta" />
+          <button id="btn-pergunta" onclick="showAnswer()">Perguntar</button>
+        </div>
+      </div>
+      <div class="resposta" id="answer">Resposta</div>
+
+      <script>
+        const datasource = {
+          NATAL: ["Feliz natal", "HoHoHo"],
+          DEPLOY: ["Não faça deploy sexta", "Faça deploy sexta"],
+          CODECON: [
+            "Acesse https://codecon.dev/",
+            "Veja mais em https://www.youtube.com/@codecondev",
+          ],
+        };
+
+        const phrase = "CODECON";
+
+        function phraseWords() {
+          let words = phrase.split(" ").map((word) => word.toUpperCase());
+          return words;
+        }
+
+        function getRandomInt(max) {
+          return Math.floor(Math.random() * max);
+        }
+
+        function getPhrase() {
+          let selectedPhrase = "";
+
+          let words = phraseWords();
+          words.forEach((word) => {
+            if (datasource[word]) {
+              let optionPhrase = getRandomInt(datasource[word].length);
+              selectedPhrase = datasource[word][optionPhrase];
+              // add break
+            }
+          });
+
+          //   if (selectedPhrase === "") {
+          //     selectedPhrase = getQuote();
+          //   }
+
+          if (selectedPhrase === "") {
+            return "Assine a Codecon PRO";
+          }
+          return selectedPhrase;
+        }
+
+        function showAnswer() {
+          const divAnswer = document.getElementById("answer");
+
+          selectedPhrase = getPhrase();
+
+          divAnswer.innerHTML = selectedPhrase;
+
+          divAnswer.classList.remove("hide");
+        }
+
+        // function hideAnswer() {
+        //   const divAnswer = document.getElementById("answer");
+
+        //   divAnswer.classList.add("hide");
+        // }
+      </script>
+
+      <div>
+        <button id="approve" onclick="addHistory('bug', true)">Aprovar</button>
+        <button id="reprove" onclick="addHistory('bug', false)">
+          Reprovar
+        </button>
+      </div>
     </section>
+    <section id="history"></section>
+    <script>
+      function addHistory(topic, approved) {
+        const payload = JSON.parse(localStorage.getItem("history"));
+
+        const answer = document.getElementById("answer").innerHTML;
+
+        quotes = [
+          ...payload,
+          {
+            topic: topic,
+            message: answer,
+            approved: approved,
+          },
+        ];
+
+        localStorage.setItem("history", JSON.stringify(quotes));
+      }
+    </script>
+    <script>
+      const history = document.getElementById("history");
+
+      const payload = JSON.parse(localStorage.getItem("history"));
+
+      console.log(payload);
+
+      payload.forEach((element) => {
+        console.log(element);
+        const el = document.createElement("p");
+        el.textContent = element.message;
+        history.appendChild(el);
+      });
+    </script>
+    <script src="scripts/script.js" type="module"></script>
+  </body>
     <script>
         function showAnswer() {
             const divAnswer = document.getElementById("answer");
