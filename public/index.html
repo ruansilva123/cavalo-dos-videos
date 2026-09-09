@@ -46,17 +46,13 @@
         }
 
         async function getPhrase() {
-            let selectedPhrase = document.getElementById("phrase").value;
+            let phrase = document.getElementById("phrase").value;
+            console.log(phrase);
+            let selectedPhrase = "";
 
             const url = "http://localhost:3000/resposta";
             try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    contentType: "application/json",
-                    body: JSON.stringify({
-                        phrase: phrase,
-                    }),
-                });
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`Response status: ${response.status}`);
                 }

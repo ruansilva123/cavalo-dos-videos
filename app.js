@@ -12,11 +12,16 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
-app.post("/resposta", (req, res) => {
-    console.log(req.body);
-    const phrase = req.body;
-    selectedPhrase = getPhrase(phrase.phrase);
-    res.json({ phrase: selectedPhrase });
+app.get("/resposta", (req, res) => {
+    try {
+        console.log(req.body);
+        const phrase = req.body;
+        selectedPhrase = getPhrase(phrase.phrase);
+        res.json({ phrase: selectedPhrase });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 })
 
 app.listen(3000);
