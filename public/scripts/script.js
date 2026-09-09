@@ -1,5 +1,5 @@
-import { datasource } from "./datasource.js";
-import { getQuote } from "./pensador.js";
+import { datasource } from "../../src/datasource.js";
+import { getQuote } from "../../src/pensador.js";
 
 const phrase = "Feliz";
 
